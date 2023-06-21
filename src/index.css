@@ -30,9 +30,6 @@ main {
   align-items: center;
 }
 
-canvas {
-}
-
 .canvas-hover {
   cursor: move;
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { Boxs } from './examples/Boxs'
+import { Box } from './components/Box'
 
 export default function App() {
   const [hover, setHover] = useState(false)
@@ -16,7 +16,7 @@ export default function App() {
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
           <pointLight position={[-10, -10, -10]} />
 
-          <Boxs position={[0, 0, 0]} onHover={setHover} />
+          <Box position={[0, 0, 0]} rotation={[10, 10, -10]} onHover={setHover} />
 
           <OrbitControls />
         </Canvas>
