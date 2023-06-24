@@ -2,17 +2,17 @@ import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 interface IProps {
-  position: number[]
+  position: [x: number, y: number, z: number]
 }
 
 export function Cylinder(props: IProps) {
   // This reference gives us direct access to the THREE.Mesh object
-  const ref = useRef()
+  const ref = useRef<any>()
   // Hold state for hovered and clicked events
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)
   // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame((state, delta) => (ref.current.rotation.x += 0.01))
+  useFrame((_state, _delta) => (ref.current.rotation.x += 0.01))
   // Return the view, these are regular Threejs elements expressed in JSX
   return (
     <mesh

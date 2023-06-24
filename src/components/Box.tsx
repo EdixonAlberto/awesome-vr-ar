@@ -3,13 +3,13 @@ import { useFrame } from '@react-three/fiber'
 import { Texture, TextureLoader } from 'three'
 
 interface IProps {
-  position: number[]
-  rotation: number[]
+  position: [x: number, y: number, z: number]
+  rotation: [x: number, y: number, z: number]
   onHover: (isHover: boolean) => void
 }
 
 export function Box(props: IProps) {
-  const ref = useRef()
+  const ref = useRef<any>()
   const [click, setClick] = useState(false)
   const [texture, setTexture] = useState(loadTexture('./react.png'))
 
@@ -22,7 +22,7 @@ export function Box(props: IProps) {
   }, [click])
 
   useFrame((_state, delta) => {
-    if (ref.current) {
+    if (ref.current && ref.current.rotation) {
       ref.current.rotation.y -= delta
     }
   })
@@ -34,7 +34,7 @@ export function Box(props: IProps) {
   return (
     <mesh
       {...props}
-      ref={ref as any}
+      ref={ref}
       scale={1}
       onClick={() => setClick(!click)}
       onPointerOver={() => props.onHover(true)}
