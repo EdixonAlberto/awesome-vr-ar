@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { Box } from './components/Box'
+
+import { Box } from './models/Box'
 
 export default function App() {
   const [hover, setHover] = useState(false)
